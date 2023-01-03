@@ -1,0 +1,12 @@
+G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Core\bin\Debug\net6.0\PolizaSOAT.Core.deps.json
+G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Core\bin\Debug\net6.0\PolizaSOAT.Core.dll
+G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Core\bin\Debug\net6.0\PolizaSOAT.Core.pdb
+G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Core\obj\Debug\net6.0\PolizaSOAT.Core.csproj.AssemblyReference.cache
+G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Core\obj\Debug\net6.0\PolizaSOAT.Core.GeneratedMSBuildEditorConfig.editorconfig
+G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Core\obj\Debug\net6.0\PolizaSOAT.Core.AssemblyInfoInputs.cache
+G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Core\obj\Debug\net6.0\PolizaSOAT.Core.AssemblyInfo.cs
+G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Core\obj\Debug\net6.0\PolizaSOAT.Core.csproj.CoreCompileInputs.cache
+G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Core\obj\Debug\net6.0\PolizaSOAT.Core.dll
+G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Core\obj\Debug\net6.0\refint\PolizaSOAT.Core.dll
+G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Core\obj\Debug\net6.0\PolizaSOAT.Core.pdb
+G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Core\obj\Debug\net6.0\ref\PolizaSOAT.Core.dll
