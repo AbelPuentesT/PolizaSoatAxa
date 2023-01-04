@@ -98,3 +98,6 @@ G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\obj\Debug\net6.0\refint\PolizaSOAT.Ap
 G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\obj\Debug\net6.0\PolizaSOAT.Api.pdb
 G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\obj\Debug\net6.0\PolizaSOAT.Api.genruntimeconfig.cache
 G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\obj\Debug\net6.0\ref\PolizaSOAT.Api.dll
+G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\FluentValidation.dll
+G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
+G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll

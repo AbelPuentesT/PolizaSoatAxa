@@ -1,10 +1,12 @@
-﻿using PolizaSOAT.Core.Entities;
+﻿using PolizaSOAT.Core.CustomEntities;
+using PolizaSOAT.Core.Entities;
+using PolizaSOAT.Core.QueryFilters;
 
 namespace PolizaSOAT.Core.Interfaces
 {
     public interface ICiudadService
     {
-        Task<IEnumerable<CiudadVenta>> GetAllCiudades();
+        PagedList<CiudadVenta> GetAllCiudades(CiudadQueryFilters filters);
         Task<CiudadVenta> GetCiudad(int id);
         Task InsertCiudad(CiudadVenta ciudad);
         Task<bool> UpdateCiudad(CiudadVenta ciudad);

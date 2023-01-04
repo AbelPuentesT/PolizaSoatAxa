@@ -14,7 +14,7 @@ namespace PolizaSOAT.Infrastructure.Repositories
             _polizaSoatContext = polizaSoatContext;
             _entities = polizaSoatContext.Set<T>();
         }
-        public async Task<IEnumerable<T>> GetAll()
+        public IEnumerable<T> GetAll()
         {
             return _entities.AsEnumerable();
         }

@@ -1,33 +1,57 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using PolizaSOAT.Core.CustomEntities;
 using PolizaSOAT.Core.DTOs;
 using PolizaSOAT.Core.Entities;
-using PolizaSOAT.Core.Enumerations;
 using PolizaSOAT.Core.Interfaces;
-using System.Data;
+using PolizaSOAT.Core.QueryFilters;
+using PolizaSOAT.Infrastructure.Interfaces;
+using PolizaSOAT.Responses;
+using System.Net;
 
 namespace PolizaSOAT.Api.Controllers
 {
-    [Authorize(Roles = nameof(RoleType.Administrator))]
+    //[Authorize(Roles = nameof(RoleType.Administrator))]
     [Route("api/Cliente")]
     [ApiController]
     public class ClienteController : ControllerBase
     {
         private readonly IClienteService _clienteService;
         private readonly IMapper _mapper;
-        public ClienteController(IClienteService clienteService, IMapper mapper)
+        private readonly IUriService _uriService;
+        public ClienteController(IClienteService clienteService, IMapper mapper, IUriService uriService)
         {
             _clienteService= clienteService;
             _mapper= mapper;
+            _uriService = uriService;
         }
         // GET: api/Cliente
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Cliente>>> GetClientes()
+        
+        [HttpGet(Name = nameof(GetClientes))]
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ApiResponse<IEnumerable<CiudadVentaDTO>>))]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        public async Task <ActionResult> GetClientes([FromQuery] ClienteQueryFilters filters)
         {
-            var clientes = await _clienteService.GetAllClientes();
+            var clientes = _clienteService.GetAllClientes(filters);
             var clientesDTO = _mapper.Map<IEnumerable<ClienteDTO>>(clientes);
-            return Ok(clientesDTO);
+            var metadata = new Metadata
+            {
+                TotalCount = clientes.TotalCount,
+                TotalPages = clientes.TotalPages,
+                HasNextPage = clientes.HasNextPage,
+                HasPreviousPage = clientes.HasPreviousPage,
+                CurrentPage = clientes.CurrentPage,
+                PageSize = clientes.PageSize,
+                NextPageURL = _uriService.GetClientesPaginationUri(filters, Url.RouteUrl(nameof(GetClientes))).ToString(),
+                PreviousPageURL = _uriService.GetClientesPaginationUri(filters, Url.RouteUrl(nameof(GetClientes))).ToString()
+            };
+            var response = new ApiResponse<IEnumerable<ClienteDTO>>(clientesDTO)
+            {
+                Meta = metadata
+            };
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metadata));
+            return Ok(response);
         }
 
         // GET: api/Cliente/int
