@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Options;
 using PolizaSOAT.Core.CustomEntities;
-using PolizaSOAT.Core.DTOs;
 using PolizaSOAT.Core.Entities;
 using PolizaSOAT.Core.Exceptions;
 using PolizaSOAT.Core.Interfaces;

@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using PolizaSOAT.Core.CustomEntities;
 using PolizaSOAT.Core.DTOs;
 using PolizaSOAT.Core.Entities;
+using PolizaSOAT.Core.Enumerations;
 using PolizaSOAT.Core.Interfaces;
 using PolizaSOAT.Core.QueryFilters;
 using PolizaSOAT.Infrastructure.Interfaces;
@@ -12,7 +14,7 @@ using System.Net;
 
 namespace PolizaSOAT.Api.Controllers
 {
-    //[Authorize(Roles = nameof(RoleType.Administrator))]
+    [Authorize(Roles = nameof(RoleType.Administrator))]
     [Route("api/Cliente")]
     [ApiController]
     public class ClienteController : ControllerBase

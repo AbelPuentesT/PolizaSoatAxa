@@ -31,7 +31,7 @@ namespace PolizaSOAT.Api.Controllers
         }
 
         // GET: api/Poliza
-        //[Authorize]
+        [Authorize]
         [HttpGet(Name = nameof(GetPolizas))]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ApiResponse<IEnumerable<PolizaDTO>>))]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
@@ -59,7 +59,7 @@ namespace PolizaSOAT.Api.Controllers
         }
 
         // GET: api/Poliza/int
-        //[Authorize(Roles = nameof(RoleType.Administrator))]
+        [Authorize(Roles = nameof(RoleType.Administrator))]
         [HttpGet("{int}")]
         public async Task<IActionResult> GetPoliza(int id)
         {
@@ -69,7 +69,7 @@ namespace PolizaSOAT.Api.Controllers
         }
 
         // POST: api/Poliza
-        //[Authorize(Roles = nameof(RoleType.Administrator))]
+        [Authorize(Roles = nameof(RoleType.Administrator))]
         [HttpPost]
         public async Task<IActionResult> PostPoliza(PolizaDTO polizaDTO)
         {
@@ -81,7 +81,7 @@ namespace PolizaSOAT.Api.Controllers
         }
 
         // PUT: api/Poliza/int
-        //[Authorize(Roles = nameof(RoleType.Administrator))]
+        [Authorize(Roles = nameof(RoleType.Administrator))]
         [HttpPut]
         public async Task<IActionResult> PutPoliza(int id, PolizaDTO polizaDTO)
         {
@@ -93,7 +93,7 @@ namespace PolizaSOAT.Api.Controllers
 
 
         // DELETE: api/Poliza/int
-        //[Authorize(Roles = nameof(RoleType.Administrator))]
+        [Authorize(Roles = nameof(RoleType.Administrator))]
         [HttpDelete("{int}")]
         public async Task<IActionResult> DeletePoliza(int id)
         {
