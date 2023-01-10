@@ -5,13 +5,13 @@ using PolizaSOAT.Infrastructure.Data;
 
 namespace PolizaSOAT.Infrastructure.Repositories
 {
-    public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
+    public class BaseRepository<T> : IRepository<T> where T : BaseEntity
     {
-        protected readonly PolizaSoatContext _polizaSoatContext;
+        protected readonly PolicySoatContext _policySoatContext;
         protected readonly DbSet<T> _entities;
-        public BaseRepository(PolizaSoatContext polizaSoatContext)
+        public BaseRepository(PolicySoatContext polizaSoatContext)  
         {
-            _polizaSoatContext = polizaSoatContext;
+            _policySoatContext = polizaSoatContext;
             _entities = polizaSoatContext.Set<T>();
         }
         public IEnumerable<T> GetAll()
@@ -29,7 +29,7 @@ namespace PolizaSOAT.Infrastructure.Repositories
         }
         public void Update(T entity)
         {
-            _entities.Update(entity);
+            _entities.Update(entity);   
         }
 
         public async Task Delete(int id)

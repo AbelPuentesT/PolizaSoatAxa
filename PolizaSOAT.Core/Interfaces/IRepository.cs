@@ -2,7 +2,7 @@
 
 namespace PolizaSOAT.Core.Interfaces
 {
-    public interface IBaseRepository<T> where T : BaseEntity
+    public interface IRepository<T> where T : BaseEntity
     {
         IEnumerable<T> GetAll();
         Task<T> GetById(int id);

@@ -1,4 +1,4 @@
-﻿namespace PolizaSOAT.Core.Exceptions
+﻿ namespace PolizaSOAT.Core.Exceptions
 {
     public class BusinessException : Exception
     {

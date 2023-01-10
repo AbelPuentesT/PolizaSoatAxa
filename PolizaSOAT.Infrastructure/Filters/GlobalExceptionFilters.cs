@@ -26,6 +26,7 @@ namespace PolizaSOAT.Infrastructure.Filters
                 context.HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
                 context.ExceptionHandled = true;
             }
+
         }
     }
 }

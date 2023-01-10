@@ -7,7 +7,7 @@ namespace PolizaSOAT.Infrastructure.Repositories
 {
     public class SecurityRepository : BaseRepository<Security>, ISecurityRepository
     {
-        public SecurityRepository(PolizaSoatContext context) : base(context)
+        public SecurityRepository(PolicySoatContext context) : base(context)
         {
 
         }

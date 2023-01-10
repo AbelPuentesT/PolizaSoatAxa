@@ -8,9 +8,9 @@ namespace PolizaSOAT.Infrastructure.Mapping
     {
         public AutoMapperProfile()
         {
-            CreateMap<Poliza, PolizaDTO>().ReverseMap();
-            CreateMap<Cliente, ClienteDTO>().ReverseMap();
-            CreateMap<CiudadVenta, CiudadVentaDTO>().ReverseMap();
+            CreateMap<Policy, PolicyDTO>().ReverseMap();
+            CreateMap<Customer, CustomerDTO>().ReverseMap();
+            CreateMap<SaleCity, SaleCityDTO>().ReverseMap();
             CreateMap<Security, SecurityDTO>().ReverseMap();
         }
     }

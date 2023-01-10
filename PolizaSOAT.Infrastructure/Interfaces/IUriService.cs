@@ -4,8 +4,8 @@ namespace PolizaSOAT.Infrastructure.Interfaces
 {
     public interface IUriService
     {
-        Uri GetPolizaPaginationUri(PolizaQueryFilters filters, string actionUrl);
-        Uri GetCiudadesPaginationUri(CiudadQueryFilters filters, string actionUrl);
-        Uri GetClientesPaginationUri(ClienteQueryFilters filters, string actionUrl);
+        Uri GetPolicyPaginationUri(PolicyQueryFilters filters, string actionUrl);
+        Uri GetCitiesPaginationUri(CityQueryFilters filters, string actionUrl);
+        Uri GetCustomersPaginationUri(CustomerQueryFilters filters, string actionUrl);
     }
 }

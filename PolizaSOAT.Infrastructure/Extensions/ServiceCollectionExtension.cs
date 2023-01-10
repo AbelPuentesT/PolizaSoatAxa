@@ -1,4 +1,5 @@
-﻿using FluentValidation.AspNetCore;
+﻿using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -23,7 +24,7 @@ namespace PolizaSOAT.Infrastructure.Extensions
     {
         public static WebApplicationBuilder AddDbContexts(this WebApplicationBuilder builder)
         {
-            builder.Services.AddDbContext<PolizaSoatContext>(options =>
+            builder.Services.AddDbContext<PolicySoatContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("PolizaSoat")));
             return builder;
         }
@@ -37,19 +38,20 @@ namespace PolizaSOAT.Infrastructure.Extensions
         }
         public static WebApplicationBuilder AddServices(this WebApplicationBuilder builder)
         {
-            builder.Services.AddTransient<IPolizaService, PolizaService>();
-            builder.Services.AddTransient<IClienteService, ClienteService>();
-            builder.Services.AddTransient<ICiudadService, CiudadService>();
+            builder.Services.AddTransient<IPolicyService, PolicyService>();
+            builder.Services.AddTransient<ICustomerService, CustomerService>();
+            builder.Services.AddTransient<ICityService, CityService>();
             builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
             builder.Services.AddTransient<ISecurityService, SecurityService>();
             builder.Services.AddSingleton<IPasswordService, PasswordService>();
-            //builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
-            builder.Services.AddScoped(typeof(PolizaSOAT.Core.Interfaces.IBaseRepository<>), typeof(BaseRepository<>));
+            builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            builder.Services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
+
             builder.Services.AddSingleton<IUriService>(provider =>
             {
                 var accesor = provider.GetRequiredService<IHttpContextAccessor>();
-                var request = accesor.HttpContext.Request;
-                var absoluteUri = string.Concat(request.Scheme, "://", request.Host.ToUriComponent());
+                var request = accesor.HttpContext?.Request;
+                var absoluteUri = string.Concat(request?.Scheme, "://", request?.Host.ToUriComponent());
                 return new UriService(absoluteUri);
             });
             return builder;
@@ -77,18 +79,24 @@ namespace PolizaSOAT.Infrastructure.Extensions
             return builder;
 
         }
-        public static WebApplicationBuilder AddMVCServices(this WebApplicationBuilder builder)
+        public static WebApplicationBuilder AddMVCFilters(this WebApplicationBuilder builder)
         {
+
+            builder.Services.AddControllers(options => options.Filters.Add<GlobalExceptionFilters>());
+
             builder.Services.AddMvc(options =>
             {
                 options.Filters.Add<ValidationFilter>();
-            }).AddFluentValidation(options =>
-            {
-                options.RegisterValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
             });
-
+            builder.Services.AddFluentValidationAutoValidation();
+            builder.Services.AddValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
             return builder;
         }
-        
+        public static WebApplicationBuilder AutoMapper(this WebApplicationBuilder builder)
+        {
+            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            return builder;
+        }
+
     }
 }

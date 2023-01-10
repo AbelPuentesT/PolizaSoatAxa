@@ -5,9 +5,9 @@ namespace PolizaSOAT.Core.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {
-        IPolizaRepository PolizaRepository { get; }
-        IBaseRepository<Cliente> ClienteRepository { get; }
-        IBaseRepository<CiudadVenta> CiudadRepository { get; }
+        IRepository<Policy> PolicyRepository { get; }
+        IRepository<Customer> CustomerRepository { get; }
+        IRepository<SaleCity> CityRepository { get; }
         ISecurityRepository SecurityRepository { get; } 
         void SaveChanges();
         Task SaveChangesAsync();

@@ -10,6 +10,9 @@ G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\AutoMapper.Extension
 G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\Azure.Core.dll
 G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\Azure.Identity.dll
 G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\Elasticsearch.Net.dll
+G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\FluentValidation.dll
+G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
+G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
 G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\Humanizer.dll
 G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
@@ -98,6 +101,3 @@ G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\obj\Debug\net6.0\refint\PolizaSOAT.Ap
 G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\obj\Debug\net6.0\PolizaSOAT.Api.pdb
 G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\obj\Debug\net6.0\PolizaSOAT.Api.genruntimeconfig.cache
 G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\obj\Debug\net6.0\ref\PolizaSOAT.Api.dll
-G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\FluentValidation.dll
-G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
-G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll

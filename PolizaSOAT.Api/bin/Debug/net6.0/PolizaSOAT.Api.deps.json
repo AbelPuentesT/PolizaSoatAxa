@@ -9,6 +9,7 @@
       "PolizaSOAT.Api/1.0.0": {
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.0",
+          "FluentValidation.AspNetCore": "11.2.2",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.12",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "6.0.12",
           "Microsoft.EntityFrameworkCore.Design": "7.0.1",

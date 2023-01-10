@@ -6,39 +6,39 @@ namespace PolizaSOAT.Infrastructure.Repositories
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly PolizaSoatContext _polizaSoatContext;
-        private readonly IPolizaRepository _polizaRepository;
-        private readonly IBaseRepository<Cliente> _clienteRepository;
-        private readonly IBaseRepository<CiudadVenta> _ciudadRepository;
-        private readonly ISecurityRepository _securityRepository;
-        public UnitOfWork(PolizaSoatContext polizaSoatContext)
+        private readonly PolicySoatContext _policySoatContext;
+        private readonly IRepository<Policy> _policySoatRepository;
+        private readonly IRepository<Customer> _customerRepository;
+        private readonly IRepository<SaleCity> _cityRepository;
+        private readonly ISecurityRepository ? _securityRepository;
+        public UnitOfWork(PolicySoatContext polizaSoatContext)
         {
-            _polizaSoatContext = polizaSoatContext;
+            _policySoatContext = polizaSoatContext;
         }
-        public IPolizaRepository PolizaRepository => _polizaRepository ?? new PolizaRepository(_polizaSoatContext);
+        public IRepository<Policy> PolicyRepository => _policySoatRepository ?? new BaseRepository<Policy>(_policySoatContext);
 
-        public IBaseRepository<Cliente> ClienteRepository => _clienteRepository ?? new BaseRepository<Cliente>(_polizaSoatContext);
+        public IRepository<Customer> CustomerRepository => _customerRepository ?? new BaseRepository<Customer>(_policySoatContext);
 
-        public IBaseRepository<CiudadVenta> CiudadRepository => _ciudadRepository ?? new BaseRepository<CiudadVenta>(_polizaSoatContext);
-        public ISecurityRepository SecurityRepository => _securityRepository ?? new SecurityRepository(_polizaSoatContext);
-
+        public IRepository<SaleCity> CityRepository => _cityRepository ?? new BaseRepository<SaleCity>(_policySoatContext);
+        public ISecurityRepository SecurityRepository => _securityRepository ?? new SecurityRepository(_policySoatContext);
+            
         public void Dispose()
         {
-            if (_polizaSoatContext != null)
+            if (_policySoatContext != null)
             {
 
-                _polizaSoatContext.Dispose();
+                _policySoatContext.Dispose();
             }
         }
 
         public void SaveChanges()
         {
-            _polizaSoatContext.SaveChanges();
+            _policySoatContext.SaveChanges();
         }
 
         public async Task SaveChangesAsync()
         {
-            await _polizaSoatContext.SaveChangesAsync();
+            await _policySoatContext.SaveChangesAsync();
         }
     }
 }

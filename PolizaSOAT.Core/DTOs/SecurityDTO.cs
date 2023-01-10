@@ -1,13 +1,13 @@
-﻿using PolizaSOAT.Core.Enumerations;
+﻿using PolizaSOAT.Core.Entities;
+using PolizaSOAT.Core.Enumerations;
 
 namespace PolizaSOAT.Core.DTOs
 {
-    public class SecurityDTO
+    public class SecurityDTO: BaseEntity
     {
-        public int Id { get; set; }
-        public string User { get; set; }
-        public string UserName { get; set; }
-        public string Password { get; set; }
+        public string User { get; set; } = null!;
+        public string UserName { get; set; } = null!;
+        public string Password { get; set; } = null!;
         public RoleType Rol { get; set; }
     }
 }

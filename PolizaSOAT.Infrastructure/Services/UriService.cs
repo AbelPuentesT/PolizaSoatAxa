@@ -10,17 +10,17 @@ namespace PolizaSOAT.Infrastructure.Services
         {
             _baseUri = baseUri;
         }
-        public Uri GetPolizaPaginationUri(PolizaQueryFilters filters, string actionUrl)
+        public Uri GetPolicyPaginationUri(PolicyQueryFilters filters, string actionUrl)
         {
             string baseUrl = $"{_baseUri}{actionUrl}";
             return new Uri(baseUrl);
         }
-        public Uri GetCiudadesPaginationUri(CiudadQueryFilters filters, string actionUrl)
+        public Uri GetCitiesPaginationUri(CityQueryFilters filters, string actionUrl)
         {
             string baseUrl = $"{_baseUri}{actionUrl}";
             return new Uri(baseUrl);
         }
-        public Uri GetClientesPaginationUri(ClienteQueryFilters filters, string actionUrl)
+        public Uri GetCustomersPaginationUri(CustomerQueryFilters filters, string actionUrl)
         {
             string baseUrl = $"{_baseUri}{actionUrl}";
             return new Uri(baseUrl);

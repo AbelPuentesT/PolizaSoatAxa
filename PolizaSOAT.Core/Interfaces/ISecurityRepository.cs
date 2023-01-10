@@ -2,7 +2,7 @@
 
 namespace PolizaSOAT.Core.Interfaces
 {
-    public interface ISecurityRepository : IBaseRepository<Security>
+    public interface ISecurityRepository : IRepository<Security>
     {
         Task<Security> GetLoginByCredential(UserLogin login);
     }
