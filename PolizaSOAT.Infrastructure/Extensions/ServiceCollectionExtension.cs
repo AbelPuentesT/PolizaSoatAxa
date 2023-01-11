@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using PolizaSOAT.Core.CustomEntities;
 using PolizaSOAT.Core.Interfaces;
 using PolizaSOAT.Core.Services;
@@ -31,7 +32,6 @@ namespace PolizaSOAT.Infrastructure.Extensions
         public static WebApplicationBuilder AddOptions(this WebApplicationBuilder builder)
         {
             builder.Services.Configure<PaginationOptions>(builder.Configuration.GetSection("Pagination"));
-
             builder.Services.Configure<PasswordsOptions>(builder.Configuration.GetSection("PasswordOptions"));
             return builder;
 
@@ -50,8 +50,8 @@ namespace PolizaSOAT.Infrastructure.Extensions
             builder.Services.AddSingleton<IUriService>(provider =>
             {
                 var accesor = provider.GetRequiredService<IHttpContextAccessor>();
-                var request = accesor.HttpContext?.Request;
-                var absoluteUri = string.Concat(request?.Scheme, "://", request?.Host.ToUriComponent());
+                var request = accesor.HttpContext.Request;
+                var absoluteUri = string.Concat(request.Scheme, "://", request.Host.ToUriComponent());
                 return new UriService(absoluteUri);
             });
             return builder;
@@ -79,6 +79,40 @@ namespace PolizaSOAT.Infrastructure.Extensions
             return builder;
 
         }
+
+        public static WebApplicationBuilder AddSwaggerGen(this WebApplicationBuilder builder)
+        {
+            builder.Services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "PolizaSOAT.Api JWTToken_Auth_API",
+                    Version = "v1"
+                });
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+                {
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT",
+                    In = ParameterLocation.Header,
+                    Description = "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 1safsfsdfdfd\"",
+                });
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement {
+                {
+                    new OpenApiSecurityScheme {
+                        Reference = new OpenApiReference {
+                            Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                        }
+                    },
+                    new string[] {}
+                }
+                });
+            });
+            return builder;
+        }
+
         public static WebApplicationBuilder AddMVCFilters(this WebApplicationBuilder builder)
         {
 

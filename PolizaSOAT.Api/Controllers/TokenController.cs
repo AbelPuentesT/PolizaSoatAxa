@@ -52,7 +52,7 @@ namespace PolizaSOAT.Api.Controllers
         {
             //Header 
             var _SymmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Authentication:SecretKey"]));
-            var signingCredentials = new SigningCredentials(_SymmetricSecurityKey, SecurityAlgorithms.HmacSha256);
+            var signingCredentials = new SigningCredentials(_SymmetricSecurityKey, SecurityAlgorithms.HmacSha256); 
             var header = new JwtHeader(signingCredentials);
             //Claims
             var claims = new[]

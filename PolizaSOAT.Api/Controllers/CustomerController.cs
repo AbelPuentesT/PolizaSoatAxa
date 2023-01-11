@@ -15,7 +15,7 @@ using System.Net;
 
 namespace PolizaSOAT.Api.Controllers
 {
-    //[Authorize(Roles = nameof(RoleType.Administrator))]
+    [Authorize(Roles = nameof(RoleType.Administrator))]
     [Route("api/Customer")]
     [ApiController]
     public class CustomerController : ControllerBase

@@ -41,10 +41,14 @@ namespace PolizaSOAT.Core.Services
             {
                 throw new BusinessException("No se puede vender póliza en esta ciudad");
             }
+            if (city.Id == 7)
+            {
+                throw new BusinessException("No se puede vender póliza en la ciudad de bogota");
+            }
             var newPolicy = policy;
-            newPolicy.StartDate = DateTime.Now;
-            newPolicy.FinalDate = newPolicy.StartDate.AddMonths(12);
-            newPolicy.PolicyEndDate = newPolicy.FinalDate;
+            newPolicy.StartDate = policy.StartDate;
+            newPolicy.FinalDate = policy.FinalDate;
+            newPolicy.PolicyEndDate = policy.PolicyEndDate;
             newPolicy.VehiclePlate = policy.VehiclePlate.ToUpper();
 
             await _unitOfWork.PolicyRepository.Add(newPolicy);

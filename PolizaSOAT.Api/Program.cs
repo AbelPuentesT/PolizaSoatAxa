@@ -1,3 +1,4 @@
+using Microsoft.OpenApi.Models;
 using PolizaSOAT.Infrastructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,7 +21,7 @@ builder.AutoMapper();
 
 builder.Services.AddEndpointsApiExplorer();
 
-builder.Services.AddSwaggerGen();
+builder.AddSwaggerGen();
 
 var app = builder.Build();
 

@@ -1,8 +1,12 @@
-﻿namespace PolizaSOAT.Core.CustomEntities
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
+
+namespace PolizaSOAT.Core.CustomEntities
 {
-    public class PaginationOptions
+    public class PaginationOptions: Attribute
     {
         public int DefaultPageSize { get; set; }
         public int DefaultPageNumber { get; set; }
+
     }
 }

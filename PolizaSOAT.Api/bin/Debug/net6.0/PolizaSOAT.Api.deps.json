@@ -729,6 +729,17 @@
           }
         }
       },
+      "Selenium.WebDriver/4.7.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "runtime": {
+          "lib/net6.0/WebDriver.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.0.0"
+          }
+        }
+      },
       "Swashbuckle.AspNetCore/6.4.0": {
         "dependencies": {
           "Microsoft.Extensions.ApiDescription.Server": "6.0.5",
@@ -1035,7 +1046,9 @@
           "Microsoft.AspNetCore.Mvc.Core": "2.2.5",
           "Microsoft.EntityFrameworkCore": "7.0.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.1",
-          "PolizaSOAT.Core": "1.0.0"
+          "PolizaSOAT.Core": "1.0.0",
+          "Selenium.WebDriver": "4.7.0",
+          "Swashbuckle.AspNetCore": "6.4.0"
         },
         "runtime": {
           "PolizaSOAT.Infrastructure.dll": {}
@@ -1545,6 +1558,13 @@
       "sha512": "sha512-QYFyxhaABwmq3p/21VrZNYvCg3DaEoN/wUuw5nmfAf0X3HLjgupwhkEWdgfb9nvGAUIv3osmZoD3kKl4jxEmYQ==",
       "path": "newtonsoft.json.bson/1.0.2",
       "hashPath": "newtonsoft.json.bson.1.0.2.nupkg.sha512"
+    },
+    "Selenium.WebDriver/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-WNGX6JxjBS5f79PQnrB4oO+5U83f8tZfND+rqX2YJVHPdv3xS/zZwljWqGu5UDhluo3kEuuT+DuGEZW8/+9fOA==",
+      "path": "selenium.webdriver/4.7.0",
+      "hashPath": "selenium.webdriver.4.7.0.nupkg.sha512"
     },
     "Swashbuckle.AspNetCore/6.4.0": {
       "type": "package",

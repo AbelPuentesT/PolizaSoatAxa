@@ -35,7 +35,7 @@ namespace PolizaSOAT.Api.Controllers
         //[Authorize]
         [HttpGet(Name = nameof(GetPolicies))]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ApiResponse<IEnumerable<PolicyDTO>>))]
-        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(ApiResponse<IEnumerable<PolicyDTO>>))]
         public async Task<IActionResult> GetPolicies([FromQuery] PolicyQueryFilters filters)
         {
             var policies = _policySoatService.GetAllPolicies(filters);
@@ -51,7 +51,7 @@ namespace PolizaSOAT.Api.Controllers
                 _uriService.GetPolicyPaginationUri(filters, Url.RouteUrl(nameof(GetPolicies))).ToString()
             );
             var response = ApiResponse<IEnumerable<PolicyDTO>>.Create(policiesDTO, metadata);
-            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metadata));
+            Response.Headers.Add("Pagination", JsonConvert.SerializeObject(metadata));
             return Ok(response);
         }
 
