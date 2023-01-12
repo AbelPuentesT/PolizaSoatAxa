@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.Options;
-
-namespace PolizaSOAT.Core.CustomEntities
+﻿namespace PolizaSOAT.Core.CustomEntities
 {
     public class PagedList<T>: List<T>
     {

@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Elasticsearch.Net;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -32,7 +31,7 @@ namespace PolizaSOAT.Api.Controllers
         }
 
         // GET: api/Policy
-        //[Authorize]
+        [Authorize]
         [HttpGet(Name = nameof(GetPolicies))]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ApiResponse<IEnumerable<PolicyDTO>>))]
         [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(ApiResponse<IEnumerable<PolicyDTO>>))]
@@ -56,7 +55,7 @@ namespace PolizaSOAT.Api.Controllers
         }
 
         // GET: api/Policy/int
-        //[Authorize(Roles = nameof(RoleType.Administrator))]
+        [Authorize(Roles = nameof(RoleType.Administrator))]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetPolicy(int id)
         {
@@ -67,7 +66,7 @@ namespace PolizaSOAT.Api.Controllers
         }
 
         // POST: api/Policy
-        //[Authorize(Roles = nameof(RoleType.Administrator))]
+        [Authorize(Roles = nameof(RoleType.Administrator))]
         [HttpPost]
         public async Task<IActionResult> PostPolicy(PolicyDTO policyDTO)
         {
@@ -80,7 +79,7 @@ namespace PolizaSOAT.Api.Controllers
         }
 
         // PUT: api/Policy/int
-        //[Authorize(Roles = nameof(RoleType.Administrator))]
+        [Authorize(Roles = nameof(RoleType.Administrator))]
         [HttpPut]
         public async Task<IActionResult> PutPolicy(int id, PolicyDTO policyDTO)
         {
@@ -93,7 +92,7 @@ namespace PolizaSOAT.Api.Controllers
 
 
         // DELETE: api/Policy/int
-        //[Authorize(Roles = nameof(RoleType.Administrator))]
+        [Authorize(Roles = nameof(RoleType.Administrator))]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePolicy(int id)
         {

@@ -7,17 +7,19 @@ namespace PolizaSOAT.Infrastructure.Validators
     {
         public PolicyValidator()
         {
-            RuleFor(poliza => poliza.VehiclePlate)
+            RuleFor(policy=> policy.StartDate)
+                .GreaterThanOrEqualTo(DateTime.Now);
+
+            RuleFor(policy => policy.FinalDate)
+                .GreaterThan(DateTime.Now);
+            
+            RuleFor(policy => policy.PolicyEndDate)
+                .GreaterThanOrEqualTo(policy=>policy.FinalDate);
+
+            RuleFor(policy => policy.VehiclePlate)
                 .NotEmpty()
                 .MaximumLength(50);
 
-            RuleFor(poliza => poliza.IdCustomer)
-                .NotEmpty()
-                .WithMessage("Ingrese una ciudad que se encuentre en la base de datos ");
-            
-            RuleFor(poliza => poliza.IdCity)
-                .NotEmpty()
-                .WithMessage("Ingrese un cliente que se encuentre en la base de datos");
 
         }
     }

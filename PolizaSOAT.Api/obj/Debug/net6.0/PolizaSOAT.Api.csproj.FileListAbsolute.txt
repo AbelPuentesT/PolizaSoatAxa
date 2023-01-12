@@ -1,3 +1,7 @@
+G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\selenium-manager\macos\selenium-manager
+G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\selenium-manager\linux\selenium-manager
+G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\selenium-manager\windows\selenium-manager.exe
+G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\web.config
 G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\appsettings.Development.json
 G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\appsettings.json
 G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\PolizaSOAT.Api.exe
@@ -49,6 +53,7 @@ G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\Mono.TextTemplating.
 G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\Nest.dll
 G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\Newtonsoft.Json.dll
 G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\WebDriver.dll
 G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -101,7 +106,3 @@ G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\obj\Debug\net6.0\refint\PolizaSOAT.Ap
 G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\obj\Debug\net6.0\PolizaSOAT.Api.pdb
 G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\obj\Debug\net6.0\PolizaSOAT.Api.genruntimeconfig.cache
 G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\obj\Debug\net6.0\ref\PolizaSOAT.Api.dll
-G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\selenium-manager\linux\selenium-manager
-G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\selenium-manager\macos\selenium-manager
-G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\selenium-manager\windows\selenium-manager.exe
-G:\TechnicalTest\PolizaSOAT\PolizaSOAT.Api\bin\Debug\net6.0\WebDriver.dll

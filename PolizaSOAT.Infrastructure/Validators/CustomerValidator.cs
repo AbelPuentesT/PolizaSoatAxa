@@ -8,10 +8,10 @@ namespace PolizaSOAT.Infrastructure.Validators
         public CustomerValidator()
         {
             RuleFor(cliente => cliente.IdCustomer)
+                .Must(x => long.TryParse(x, out var val) && val > 0)
+                .WithMessage("Ingrese un numero de identificacion valido")
                 .NotEmpty()
-                .Must(x => int.TryParse(x, out var val) && val > 0)
-                .Length(7, 50)
-                .WithMessage("Ingrese un numero de identificacion valido");
+                .Length(7, 50);
 
             RuleFor(cliente => cliente.FirstLastName)
                 .NotEmpty()
@@ -25,7 +25,7 @@ namespace PolizaSOAT.Infrastructure.Validators
             RuleFor(cliente => cliente.FirstName)
                 .NotEmpty()
                 .MaximumLength(50)
-                .WithMessage("Primer nombre es requerido"); 
+                .WithMessage("Primer nombre es requerido");
 
             RuleFor(cliente => cliente.SecondName)
                 .MaximumLength(50)
@@ -42,7 +42,7 @@ namespace PolizaSOAT.Infrastructure.Validators
                 .WithMessage("City de residencia es requerida");
 
             RuleFor(a => a.Phone)
-                .Must(x => int.TryParse(x, out var val) && val > 0)
+                .Must(x => long.TryParse(x, out var val) && val > 0)
                 .WithMessage("Ingrese un numero de celular valido")
                 .MaximumLength(50);
 

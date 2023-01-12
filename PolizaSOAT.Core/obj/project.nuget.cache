@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "K/stKAYhycNV90seXCrsA6Q1ioFm1Nx6SmhP8pY6zFMsP3urIIbJG7xJCZs8d4MlEEouWZ6MvFFfBht3VC/+sw==",
+  "dgSpecHash": "2WZVFRiAtsPhfm7L19cz08Q0EC34Pa6qvaM2XU+PmE1N5skyU+iqGB2iaia/sTWmQ9BN/lMp4oaTYT5IhNDeEQ==",
   "success": true,
   "projectFilePath": "G:\\TechnicalTest\\PolizaSOAT\\PolizaSOAT.Core\\PolizaSOAT.Core.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\puent\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
-    "C:\\Users\\puent\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",
-    "C:\\Users\\puent\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
-    "C:\\Users\\puent\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

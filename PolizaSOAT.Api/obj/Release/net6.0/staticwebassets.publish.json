@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "mXaQwtl1fDdVhSDN4vtuBzSMfkJ2IOranBoi1nDwomM=",
+  "Source": "PolizaSOAT.Api",
+  "BasePath": "_content/PolizaSOAT.Api",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

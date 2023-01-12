@@ -2,8 +2,10 @@
 
 namespace PolizaSOAT.Core.QueryFilters
 {
-    public class CityQueryFilters: PaginationFilters
+    public class CityQueryFilters : PaginationFilters
     {
+
+
         public string? City { get; set; }
     }
 }

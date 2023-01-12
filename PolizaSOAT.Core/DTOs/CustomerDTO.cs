@@ -9,11 +9,11 @@ namespace PolizaSOAT.Core.DTOs
 
         public string FirstLastName { get; set; } = null!;
 
-        public string SecondLastName { get; set; } = null!; 
+        public string SecondLastName { get; set; } 
 
         public string FirstName { get; set; } = null!; 
 
-        public string SecondName { get; set; } = null!; 
+        public string SecondName { get; set; } 
 
         public string Address { get; set; } = null!; 
 

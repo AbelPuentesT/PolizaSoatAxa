@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Options;
-using PolizaSOAT.Core.CustomEntities;
+﻿using PolizaSOAT.Core.CustomEntities;
 using PolizaSOAT.Core.Entities;
 using PolizaSOAT.Core.Interfaces;
 using PolizaSOAT.Core.QueryFilters;
@@ -9,17 +8,15 @@ namespace PolizaSOAT.Core.Services
     public class CustomerService: ICustomerService
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly PaginationOptions _paginationOptions;
-        public CustomerService(IUnitOfWork unitOfWork, IOptions<PaginationOptions> options)
+        public CustomerService(IUnitOfWork unitOfWork)
         {
             _unitOfWork= unitOfWork;
-            _paginationOptions = options.Value;
         }
 
         public PagedList<Customer> GetAllCustomers(CustomerQueryFilters filters)
         {
-            filters.PageNumber = filters.PageNumber == 0 ? _paginationOptions.DefaultPageNumber : filters.PageNumber;
-            filters.PageSize = filters.PageSize == 0 ? _paginationOptions.DefaultPageSize : filters.PageSize;
+            filters.PageNumber = filters.PageNumber == 0 ? _unitOfWork.PaginationOptions.DefaultPageNumber : filters.PageNumber;
+            filters.PageSize = filters.PageSize == 0 ? _unitOfWork.PaginationOptions.DefaultPageSize : filters.PageSize;
             var customers= _unitOfWork.CustomerRepository.GetAll();
             if (filters.FirstNameCustomer != null)
             {

@@ -42,7 +42,9 @@ namespace PolizaSOAT.Infrastructure.Extensions
             builder.Services.AddTransient<ICustomerService, CustomerService>();
             builder.Services.AddTransient<ICityService, CityService>();
             builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
+            builder.Services.AddTransient<ITokenService, TokenService>() ;
             builder.Services.AddTransient<ISecurityService, SecurityService>();
+            builder.Services.AddTransient<PaginationOptions>();
             builder.Services.AddSingleton<IPasswordService, PasswordService>();
             builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             builder.Services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));

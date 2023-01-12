@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Options;
-using PolizaSOAT.Core.CustomEntities;
+﻿using PolizaSOAT.Core.CustomEntities;
 using PolizaSOAT.Core.Entities;
 using PolizaSOAT.Core.Exceptions;
 using PolizaSOAT.Core.Interfaces;
@@ -10,17 +9,15 @@ namespace PolizaSOAT.Core.Services
     public class PolicyService : IPolicyService
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly PaginationOptions _paginationOptions;
-        public PolicyService(IUnitOfWork unitOfWork, IOptions<PaginationOptions> options)
+        public PolicyService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
-            _paginationOptions = options.Value;
         }
 
         public PagedList<Policy> GetAllPolicies(PolicyQueryFilters filters)
         {
-            filters.PageNumber = filters.PageNumber == 0 ? _paginationOptions.DefaultPageNumber : filters.PageNumber;
-            filters.PageSize = filters.PageSize == 0 ? _paginationOptions.DefaultPageSize : filters.PageSize;
+            filters.PageNumber = filters.PageNumber == 0 ? _unitOfWork.PaginationOptions.DefaultPageNumber : filters.PageNumber;
+            filters.PageSize = filters.PageSize == 0 ? _unitOfWork.PaginationOptions.DefaultPageSize : filters.PageSize;
             var policies = _unitOfWork.PolicyRepository.GetAll();
             if (filters.VehiclePlate !=null)
             {
@@ -41,16 +38,13 @@ namespace PolizaSOAT.Core.Services
             {
                 throw new BusinessException("No se puede vender póliza en esta ciudad");
             }
-            if (city.Id == 7)
+            var user=await _unitOfWork.CustomerRepository.GetById(policy.IdCustomer);
+            if (user == null)
             {
-                throw new BusinessException("No se puede vender póliza en la ciudad de bogota");
+                throw new BusinessException("Useario no registrado en la base de datos");
             }
             var newPolicy = policy;
-            newPolicy.StartDate = policy.StartDate;
-            newPolicy.FinalDate = policy.FinalDate;
-            newPolicy.PolicyEndDate = policy.PolicyEndDate;
             newPolicy.VehiclePlate = policy.VehiclePlate.ToUpper();
-
             await _unitOfWork.PolicyRepository.Add(newPolicy);
             await _unitOfWork.SaveChangesAsync();
         }
@@ -64,7 +58,7 @@ namespace PolizaSOAT.Core.Services
                 throw new BusinessException("La póliza no se pude vender porque su póliza actual se encuentra vencida");
             }
             existingPolicy.StartDate = policy.StartDate;
-            existingPolicy.FinalDate=policy.FinalDate;
+            existingPolicy.FinalDate = policy.FinalDate;
             existingPolicy.PolicyEndDate = policy.PolicyEndDate;
             existingPolicy.VehiclePlate = policy.VehiclePlate.ToUpper();
             _unitOfWork.PolicyRepository.Update(existingPolicy);

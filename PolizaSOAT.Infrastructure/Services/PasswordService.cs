@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Options;
+using PolizaSOAT.Core.Exceptions;
 using PolizaSOAT.Infrastructure.Interfaces;
 using PolizaSOAT.Infrastructure.Options;
 using System.Security.Cryptography;
@@ -18,11 +19,12 @@ namespace PolizaSOAT.Infrastructure.Services
             var parts = hash.Split('.');
             if (parts.Length != 3)
             {
-                throw new ArgumentException("Unexpected hash format");
+                throw new BusinessException("Unexpected hash format");
             }
             var iterations = Convert.ToInt32(parts[0]);
             var salt = Convert.FromBase64String(parts[1]);
             var key = Convert.FromBase64String(parts[2]);
+
             using (var algorithm = new Rfc2898DeriveBytes(
                 password,
                 salt,

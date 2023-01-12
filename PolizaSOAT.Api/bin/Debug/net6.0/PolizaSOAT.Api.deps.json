@@ -1030,9 +1030,6 @@
         }
       },
       "PolizaSOAT.Core/1.0.0": {
-        "dependencies": {
-          "Microsoft.Extensions.Options": "7.0.0"
-        },
         "runtime": {
           "PolizaSOAT.Core.dll": {}
         }
